@@ -404,9 +404,10 @@ class GoogleSignIn {
   Future<GoogleSignInAccount?> signIn() {
     final Future<GoogleSignInAccount?> result =
         _addMethodCall(GoogleSignInPlatform.instance.signIn, canSkipCall: true);
-    bool isCanceled(dynamic error) =>
-        error is PlatformException && error.code == kSignInCanceledError;
-    return result.catchError((dynamic _) => null, test: isCanceled);
+    // bool isCanceled(dynamic error) =>
+    //     error is PlatformException && error.code == kSignInCanceledError;
+    // return result.catchError((dynamic _) => null, test: isCanceled);
+    return result;
   }
 
   /// Marks current user as being in the signed out state.
